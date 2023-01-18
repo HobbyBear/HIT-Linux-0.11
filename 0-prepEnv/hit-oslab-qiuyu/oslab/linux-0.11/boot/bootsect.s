@@ -46,7 +46,7 @@ entry _start
 _start:
 	mov	ax,#BOOTSEG
 	mov	ds,ax
-	mov	ax,#INITSEG ！ 0x9000
+	mov	ax,#INITSEG ! 0x9000
 	mov	es,ax
 	mov	cx,#256
 	sub	si,si
