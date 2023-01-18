@@ -46,14 +46,14 @@ entry _start
 _start:
 	mov	ax,#BOOTSEG
 	mov	ds,ax
-	mov	ax,#INITSEG
+	mov	ax,#INITSEG ！ 0x9000
 	mov	es,ax
 	mov	cx,#256
 	sub	si,si
 	sub	di,di
-	rep
-	movw
-	jmpi	go,INITSEG
+	rep       ! 重复执行该语句直至寄存器cx为0
+	movw   ！ 将DS：SI的内容送至ES：DI 是复制过去，原来的代码还在。
+	jmpi	go,INITSEG  ！ 跳转到 INITSEG:go 执行
 go:	mov	ax,cs
 	mov	ds,ax
 	mov	es,ax
