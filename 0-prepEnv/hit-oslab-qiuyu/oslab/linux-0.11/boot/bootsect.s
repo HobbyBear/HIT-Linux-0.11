@@ -52,8 +52,8 @@ _start:
 	sub	si,si
 	sub	di,di
 	rep       ! 重复执行该语句直至寄存器cx为0
-	movw   ！ 将DS：SI的内容送至ES：DI 是复制过去，原来的代码还在。
-	jmpi	go,INITSEG  ！ 跳转到 INITSEG:go 执行
+	movw   ! 将DS：SI的内容送至ES：DI 是复制过去，原来的代码还在。
+	jmpi	go,INITSEG  ! 跳转到 INITSEG:go 执行
 go:	mov	ax,cs
 	mov	ds,ax
 	mov	es,ax
