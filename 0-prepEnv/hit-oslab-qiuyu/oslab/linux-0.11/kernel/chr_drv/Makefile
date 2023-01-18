@@ -24,18 +24,15 @@ CPP	=gcc-3.4 -m32 -g -E -nostdinc -I../../include
 	$(CC) $(CFLAGS) \
 	-c -o $*.o $<
 
-OBJS  = tty_io.o console.o keyboard.o serial.o rs_io.o \
+OBJS  = tty_io.o console.o  serial.o rs_io.o \
 	tty_ioctl.o
 
 chr_drv.a: $(OBJS)
 	$(AR) rcs chr_drv.a $(OBJS)
 	sync
 
-keyboard.s: keyboard.s ../../include/linux/config.h
-	$(CPP) -traditional keyboard.s -o keyboard.s
-
 clean:
-	rm -f core *.o *.a tmp_make keyboard.s
+	rm -f core *.o *.a tmp_make
 	for i in *.c;do rm -f `basename $$i .c`.s;done
 
 dep:
